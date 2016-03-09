@@ -3,6 +3,7 @@ SnackAlert
 
 A small library to show context colored snackbar's.
 
+![Screencast](snackalert.gif)
 
 Download
 ========
@@ -29,7 +30,7 @@ dependencies {
 Usage
 =====
 
-````java
+```java
 SnackAlert.success(view, "success");
 
 SnackAlert.error(view, "error");
