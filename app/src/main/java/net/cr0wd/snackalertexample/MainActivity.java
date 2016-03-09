@@ -14,8 +14,27 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClick(View view) {
-//        SnackAlert.success(view, "Test");
-        SnackAlert.longInfo(view, "some text");
+    public void onSuccessClick(View view) {
+        SnackAlert.success(view, "success");
+    }
+
+    public void onErrorClick(View view) {
+        SnackAlert.error(view, "error");
+    }
+
+    public void onInfoClick(View view) {
+        SnackAlert.info(view, "info");
+    }
+
+    public void onLongSuccessClick(View view) {
+        SnackAlert.longSuccess(view, "long success");
+    }
+
+    public void onLongErrorClick(View view) {
+        SnackAlert.longError(view, "long error");
+    }
+
+    public void onLongInfoClick(View view) {
+        SnackAlert.longInfo(view, "long info");
     }
 }
