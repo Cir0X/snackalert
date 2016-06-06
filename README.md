@@ -37,9 +37,13 @@ SnackAlert.error(view, "error");
 
 SnackAlert.info(view, "info");
 
+SnackAlert.custom(view, "custom", Color.RED, Color.BLUE);
+
 SnackAlert.longSuccess(view, "long success");
 
 SnackAlert.longError(view, "long error");
 
 SnackAlert.longInfo(view, "long info");
+
+SnackAlert.longCustom(view, "custom", Color.RED, Color.BLUE);
 ```
