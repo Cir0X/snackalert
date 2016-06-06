@@ -45,5 +45,5 @@ SnackAlert.longError(view, "long error");
 
 SnackAlert.longInfo(view, "long info");
 
-SnackAlert.longCustom(view, "custom", Color.RED, Color.BLUE);
+SnackAlert.longCustom(view, "long custom", Color.RED, Color.BLUE);
 ```
