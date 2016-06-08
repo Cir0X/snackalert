@@ -19,6 +19,16 @@ public class SnackAlert {
     }
 
     /**
+     * Shows success Snackbar for short period.
+     *
+     * @param view    The view to find a parent from.
+     * @param message The text resource to show.
+     */
+    public static void success(View view, int message) {
+        createSnackbar(view, message, R.color.success_background, R.color.success_text, Snackbar.LENGTH_SHORT).show();
+    }
+
+    /**
      * Shows error Snackbar for short period.
      *
      * @param view    The view to find a parent from.
@@ -29,12 +39,32 @@ public class SnackAlert {
     }
 
     /**
+     * Shows error Snackbar for short period.
+     *
+     * @param view    The view to find a parent from.
+     * @param message The text resource to show.
+     */
+    public static void error(View view, int message) {
+        createSnackbar(view, message, R.color.error_background, R.color.error_text, Snackbar.LENGTH_SHORT).show();
+    }
+
+    /**
      * Shows info Snackbar for short period.
      *
      * @param view    The view to find a parent from.
      * @param message The text to show. Can be formatted text.
      */
     public static void info(View view, String message) {
+        createSnackbar(view, message, R.color.info_background, R.color.info_text, Snackbar.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Shows info Snackbar for short period.
+     *
+     * @param view    The view to find a parent from.
+     * @param message The text resource to show.
+     */
+    public static void info(View view, int message) {
         createSnackbar(view, message, R.color.info_background, R.color.info_text, Snackbar.LENGTH_SHORT).show();
     }
 
@@ -51,12 +81,34 @@ public class SnackAlert {
     }
 
     /**
+     * Shows custom colored Snackbar for short period.
+     *
+     * @param view            The view to find a parent from.
+     * @param message         The text resource to show.
+     * @param backgroundColor The color of the background.
+     * @param textColor       The color of the text.
+     */
+    public static void custom(View view, int message, int backgroundColor, int textColor) {
+        createCustomSnackbar(view, message, backgroundColor, textColor, Snackbar.LENGTH_SHORT).show();
+    }
+
+    /**
      * Shows success Snackbar for long period.
      *
      * @param view    The view to find a parent from.
      * @param message The text to show. Can be formatted text.
      */
     public static void longSuccess(View view, String message) {
+        createSnackbar(view, message, R.color.success_background, R.color.success_text, Snackbar.LENGTH_LONG).show();
+    }
+
+    /**
+     * Shows success Snackbar for long period.
+     *
+     * @param view    The view to find a parent from.
+     * @param message The text resource to show.
+     */
+    public static void longSuccess(View view, int message) {
         createSnackbar(view, message, R.color.success_background, R.color.success_text, Snackbar.LENGTH_LONG).show();
     }
 
@@ -71,12 +123,32 @@ public class SnackAlert {
     }
 
     /**
+     * Shows error Snackbar for long period.
+     *
+     * @param view    The view to find a parent from.
+     * @param message The text resource to show.
+     */
+    public static void longError(View view, int message) {
+        createSnackbar(view, message, R.color.error_background, R.color.error_text, Snackbar.LENGTH_LONG).show();
+    }
+
+    /**
      * Shows info Snackbar for long period.
      *
      * @param view    The view to find a parent from.
      * @param message The text to show. Can be formatted text.
      */
     public static void longInfo(View view, String message) {
+        createSnackbar(view, message, R.color.info_background, R.color.info_text, Snackbar.LENGTH_LONG).show();
+    }
+
+    /**
+     * Shows info Snackbar for long period.
+     *
+     * @param view    The view to find a parent from.
+     * @param message The text resource to show.
+     */
+    public static void longInfo(View view, int message) {
         createSnackbar(view, message, R.color.info_background, R.color.info_text, Snackbar.LENGTH_LONG).show();
     }
 
@@ -92,6 +164,19 @@ public class SnackAlert {
         createCustomSnackbar(view, message, backgroundColor, textColor, Snackbar.LENGTH_LONG).show();
     }
 
+    /**
+     * Shows custom colored Snackbar for long period.
+     *
+     * @param view            The view to find a parent from.
+     * @param message         The text resource to show.
+     * @param backgroundColor The color of the background.
+     * @param textColor       The color of the text.
+     */
+    public static void longCustom(View view, int message, int backgroundColor, int textColor) {
+        createCustomSnackbar(view, message, backgroundColor, textColor, Snackbar.LENGTH_LONG).show();
+    }
+
+
     private static Snackbar createSnackbar(View view, String message, int backgroundColor, int textColor, int length) {
         Resources res = view.getResources();
         Snackbar snackbar = Snackbar.make(view, message, length);
@@ -102,6 +187,11 @@ public class SnackAlert {
         return snackbar;
     }
 
+    private static Snackbar createSnackbar(View view, int messageResId, int backgroundColor, int textColor, int length) {
+        String message = view.getResources().getString(messageResId);
+        return createSnackbar(view, message, backgroundColor, textColor, length);
+    }
+
     private static Snackbar createCustomSnackbar(View view, String message, int backgroundColor, int textColor, int length) {
         Snackbar snackbar = Snackbar.make(view, message, length);
         ViewGroup viewGroup = (ViewGroup) snackbar.getView();
@@ -109,6 +199,11 @@ public class SnackAlert {
         TextView textView = (TextView) viewGroup.getChildAt(0);
         textView.setTextColor(textColor);
         return snackbar;
+    }
+
+    private static Snackbar createCustomSnackbar(View view, int messageResId, int backgroundColor, int textColor, int length) {
+        String message = view.getResources().getString(messageResId);
+        return createCustomSnackbar(view, message, backgroundColor, textColor, length);
     }
 
 
