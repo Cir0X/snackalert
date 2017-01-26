@@ -2,6 +2,9 @@ package net.cr0wd.snackalert;
 
 import android.content.res.Resources;
 import android.support.design.widget.Snackbar;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -179,11 +182,11 @@ public class SnackAlert {
 
     private static Snackbar createSnackbar(View view, String message, int backgroundColor, int textColor, int length) {
         Resources res = view.getResources();
-        Snackbar snackbar = Snackbar.make(view, message, length);
-        ViewGroup viewGroup = (ViewGroup) snackbar.getView();
-        viewGroup.setBackgroundColor(res.getColor(backgroundColor));
-        TextView textView = (TextView) viewGroup.getChildAt(0);
-        textView.setTextColor(res.getColor(textColor));
+        SpannableStringBuilder builder = new SpannableStringBuilder().append(message);
+        builder.setSpan(new ForegroundColorSpan(res.getColor(textColor)), 0, message.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        Snackbar snackbar = Snackbar.make(view, builder, length);
+        View snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(res.getColor(backgroundColor));
         return snackbar;
     }
 
@@ -193,11 +196,11 @@ public class SnackAlert {
     }
 
     private static Snackbar createCustomSnackbar(View view, String message, int backgroundColor, int textColor, int length) {
-        Snackbar snackbar = Snackbar.make(view, message, length);
-        ViewGroup viewGroup = (ViewGroup) snackbar.getView();
-        viewGroup.setBackgroundColor(backgroundColor);
-        TextView textView = (TextView) viewGroup.getChildAt(0);
-        textView.setTextColor(textColor);
+        SpannableStringBuilder builder = new SpannableStringBuilder().append(message);
+        builder.setSpan(new ForegroundColorSpan(textColor), 0, message.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        Snackbar snackbar = Snackbar.make(view, builder, length);
+        View snackbarView = snackbar.getView();
+        snackbarView.setBackgroundColor(backgroundColor);
         return snackbar;
     }
 
