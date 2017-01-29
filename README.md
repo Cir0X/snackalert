@@ -23,7 +23,7 @@ allprojects {
 and then the dependecy:
 ```gradle
 dependencies {
-	compile 'com.github.Cir0X:snackalert:0.2'
+	compile 'com.github.Cir0X:snackalert:0.3'
 }
 ```
 
