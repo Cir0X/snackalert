@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/Cir0X/snackalert.svg)](https://jitpack.io/#Cir0X/snackalert)
+
 SnackAlert
 ==========
 
